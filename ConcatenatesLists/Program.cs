@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ConcatenatesLists;
 
@@ -19,14 +20,23 @@ public static class Program
             "c"
         };
 
-        List<string> numbers = new()
+        List<int> numbers = new()
         {
-            "1",
-            "2",
-            "3"
+            1,
+            2,
+            3
         };
 
-        letters.AddRange(numbers);
-        Console.WriteLine(String.Join(",", letters));
+        List<string> convertedNumbers = numbers.ConvertAll<string>(x => x.ToString());
+
+        var result = letters.Concat(convertedNumbers).ToList();
+
+        List<string> concatenatedList = result.ToList();
+
+        foreach (string s in concatenatedList)
+        {
+            Console.Write($"{s}, ");
+        }
+        
     }
 }
