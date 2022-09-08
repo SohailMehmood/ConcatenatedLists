@@ -25,7 +25,7 @@ public static class Program
             3
         };
 
-        List<string> convertedNumbers = numbers.ConvertAll<string>(x => x.ToString());
+        List<string> convertedNumbers = numbers.ConvertAll(x => x.ToString());
 
         var result = letters.Concat(convertedNumbers).ToList();
 
